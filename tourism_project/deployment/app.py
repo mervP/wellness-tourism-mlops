@@ -7,8 +7,10 @@ import pandas as pd
 import streamlit as st
 from huggingface_hub import hf_hub_download
 
+# MUST be the first Streamlit call
+st.set_page_config(page_title="Wellness Tourism Predictor", page_icon=":palm_tree:")
 
-HF_USERNAME = os.getenv("HF_USERNAME", "prashanth-merwyn")
+HF_USERNAME = os.getenv("HF_USERNAME", "mervml")
 MODEL_REPO = f"{HF_USERNAME}/wellness-tourism-model"
 MODEL_FILE = "best_wellness_tourism_model_v1.joblib"
 
@@ -21,7 +23,6 @@ def load_model():
 
 model = load_model()
 
-st.set_page_config(page_title="Wellness Tourism Predictor", page_icon=":palm_tree:")
 st.title("Visit With Us - Wellness Tourism Package Predictor")
 st.write(
     """
